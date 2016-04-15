@@ -13,6 +13,14 @@
       <li><%= link_to "Blocipedia", root_path %></li>
       <li><%= link_to "About", about_path %></li>
       <li><%= link_to "Wikis", wikis_path %></li>
+      <% if current_user.premium? %>
+        <li><%= link_to "Downgrade", charge_path(current_user), method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Upgrade", new_charge_path %></li>
+      <% end %>
+      <% if user_signed_in? %>
+        <li>Membership Type: <%= current_user.role.capitalize %></li>
+      <% end %>
       <div class="pull-right">
         <% if user_signed_in? %>
           Signed in as: <strong><%= current_user.email %></strong> |

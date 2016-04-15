@@ -6,6 +6,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '1.0'
 gem 'pundit'
+gem 'stripe'
 
 group :production do
   gem 'pg'
