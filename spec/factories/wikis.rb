@@ -3,6 +3,6 @@ FactoryGirl.define do
     title "MyString"
     body "MyText"
     private false
-    user nil
+    user
   end
 end

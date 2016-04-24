@@ -1,0 +1,14 @@
+<%= form_for @wiki do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body %>
+  <%= f.text_area :body, rows: 8 %>
+
+  <% if current_user.premium? || current_user.admin? %>
+    <%= f.label :private, class: 'checkbox' do %>
+      <%= f.check_box :private %> Private Wiki
+    <% end %> 
+  <% end %>
+  <%= f.submit "Submit" %>
+<% end %>
