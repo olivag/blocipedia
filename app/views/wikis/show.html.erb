@@ -1,6 +1,6 @@
 <h1><%= @wiki.title %></h1>
 <p><%= @wiki.body %></p>
-<% if policy(@wiki).update? %>
+<% if policy(@wiki).edit? %>
   <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
   <%= link_to "Delete Wiki", wiki_path(@wiki), class: 'btn btn-danger', method: :delete %>
 <% end %>

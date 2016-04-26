@@ -10,6 +10,13 @@ class User < ActiveRecord::Base
 
   enum role: [:standard, :premium, :admin]
 
+  def self.set_to_public_wikis(user)
+    @wikis = user.wikis.where(private: true)
+    @wikis.each do |wiki|
+      wiki.update_attribute(:private, false)
+    end
+  end  
+
   private
     
     def initialize_role

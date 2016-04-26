@@ -18,12 +18,21 @@ users = User.all
   Wiki.create(
     title: Faker::Lorem.sentence,
     body: Faker::Lorem.paragraph,
-    user: users.sample
+    user: users.sample,
+    private: false
     )
 end
 
 user = User.new(
   email: "ryumaster001@yahoo.com",
+  password: "helloworld",
+  name: "Gerald"
+  )
+user.skip_confirmation!
+user.save!
+
+user = User.new(
+  email: "member@example.com",
   password: "helloworld",
   name: "Gerald"
   )

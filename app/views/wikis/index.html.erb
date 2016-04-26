@@ -1,6 +1,9 @@
 <h1>All Wikis</h1>
 
-<%= link_to "New Wiki", new_wiki_path, class: "btn btn-success" %>
-<% @wikis.each do |wiki| %>
+<% if user_signed_in? %>
+  <%= link_to "New Wiki", new_wiki_path, class: "btn btn-success" %>
+<% end %>
+<% policy_scope(@wikis).each do |wiki| %>
   <p><%= link_to wiki.title, wiki %></p>  
 <% end %>
+

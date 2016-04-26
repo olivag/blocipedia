@@ -7,6 +7,12 @@ gem 'devise'
 gem 'figaro', '1.0'
 gem 'pundit'
 gem 'stripe'
+gem 'sass-rails', '~> 5.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+gem 'pry'
 
 group :production do
   gem 'pg'
@@ -15,15 +21,9 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
-
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'jquery-rails'
-gem 'turbolinks'
-gem 'bootstrap'
-gem 'pry'
 
 group :development, :test do
   gem 'byebug'
