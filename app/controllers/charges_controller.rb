@@ -38,7 +38,7 @@ class ChargesController < ApplicationController
 
   def destroy
     current_user.update_attribute(:role, 0)
-    Wiki.set_to_public_wikis(current_user)
+    User.set_to_public_wikis(current_user)
     redirect_to wikis_path
   end
 end
