@@ -15,7 +15,7 @@
       <li><%= link_to "Wikis", wikis_path %></li>
       <% if user_signed_in? %>
         <% if current_user.premium? %>
-          <li><%= link_to "Downgrade", charge_path(current_user), method: :delete %></li>
+          <li><%= link_to "Downgrade", charge_path(current_user), data: { confirm: 'Are you sure you want to downgrade?' }, method: :delete %></li>
         <% else %>
           <li><%= link_to "Upgrade", new_charge_path %></li>
         <% end %>

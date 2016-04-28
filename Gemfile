@@ -13,6 +13,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'pry'
+gem 'redcarpet'
 
 group :production do
   gem 'pg'
