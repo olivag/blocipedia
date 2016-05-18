@@ -45,6 +45,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @users = User.all
+    @new_collaborator = Collaborator.new 
     authorize @wiki
     # if @wiki.private && current_user.standard?
     #   flash[:alert] = "You must be a Premium member to view private wikis."

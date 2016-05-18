@@ -14,6 +14,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'pry'
 gem 'redcarpet'
+gem 'quiet_assets'
 
 group :production do
   gem 'pg'
