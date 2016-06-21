@@ -45,7 +45,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
-    @users = User.all
+    @collaborator_users = @wiki.collaborators.map(&:user)
+    @users = User.all - @collaborator_users 
     @new_collaborator = Collaborator.new 
     authorize @wiki
     # if @wiki.private && current_user.standard?

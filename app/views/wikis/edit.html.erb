@@ -2,13 +2,7 @@
 
 <br>
 <h3>Add Collaborators</h3>
-<div>
-  <ul>
-    <% @users.each do |user| %> 
-    <li><%= user.name %></li>
-    <% end %>
-  </ul>
-</div>
+
 
 <%= form_for  @new_collaborator do |f| %>
   <!-- needs user_id and wiki_id -->
@@ -16,3 +10,14 @@
   <%= f.collection_select :user_id, @users, :id, :email %>
   <%= f.submit %>
 <% end %>
+
+
+<h3>Current Collaborators </h3>
+<div>
+  <ul>
+    <% @wiki.collaborators.each do |collaborator| %> 
+    <li><%= collaborator.user.email %></li>
+    <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
+    <% end %>
+  </ul>
+</div>
