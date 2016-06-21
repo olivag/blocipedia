@@ -48,6 +48,7 @@ class WikisController < ApplicationController
     @collaborator_users = @wiki.collaborators.map(&:user)
     @users = User.all - @collaborator_users 
     @new_collaborator = Collaborator.new 
+
     authorize @wiki
     # if @wiki.private && current_user.standard?
     #   flash[:alert] = "You must be a Premium member to view private wikis."

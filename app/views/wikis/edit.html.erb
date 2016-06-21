@@ -7,7 +7,7 @@
 <%= form_for  @new_collaborator do |f| %>
   <!-- needs user_id and wiki_id -->
   <%= f.hidden_field :wiki_id, value: params[:id] %>
-  <%= f.collection_select :user_id, @users, :id, :email %>
+  <%= f.collection_check_boxes :user_id, @users, :id, :email %>
   <%= f.submit %>
 <% end %>
 

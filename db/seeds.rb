@@ -26,7 +26,8 @@ end
 user = User.new(
   email: "ryumaster001@yahoo.com",
   password: "helloworld",
-  name: "Gerald"
+  name: "Gerald Oliva",
+  role: 'premium'
   )
 user.skip_confirmation!
 user.save!
@@ -34,7 +35,7 @@ user.save!
 user = User.new(
   email: "member@example.com",
   password: "helloworld",
-  name: "Gerald"
+  name: "Member Smith"
   )
 user.skip_confirmation!
 user.save!
