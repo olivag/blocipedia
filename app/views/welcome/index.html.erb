@@ -1,1 +1,41 @@
-<h1>Welcome to Blocipedia</h1>
+<div class="jumbotron text-center">
+  <h1>Welcome to Blocipedia</h1>
+  <h2><small >A production quality SaaS app that allows users to create their own wikis.</small></h2>
+  
+  <br>
+  
+  <div class="row">
+    <% if user_signed_in? %>
+      <div class="col-md-6"><p><%= link_to "View Wikis", wikis_path, class: "btn btn-primary" %></p></div>
+      <div class="col-md-6"><p><%= link_to "New Wikis", new_wiki_path, class: "btn btn-primary" %></p></div>
+    <% else %>
+      <div class="col-md-12">
+        <p>
+          <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+          <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+        </p>
+      </div>
+    <% end %>   
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h3 class="text-center">Basic Plan</h3></div>
+      <div class="panel-body"><%= image_tag("zero_dollars.png", width: '433', height: '433', alt: "Zero dollars", class: "center-block img-responsive") %></div>
+    </div>  
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel panel-info">
+      <div class="panel-heading"><h3 class="text-center">Premium Plan<small> /month</small></h3></div>
+      <div class="panel-body"><%= image_tag("fifteen_dollars.png", width: '321', height: '321', alt: "Fifteen dollars", class: "center-block img-responsive") %></div>
+    </div>  
+  </div>
+</div>
+
+<script>
+ // Sends click event to Blocmetrics
+  blocmetrics.report("About Page Loaded")
+</script>

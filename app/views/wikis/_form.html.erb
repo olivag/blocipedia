@@ -1,14 +1,23 @@
-<%= form_for @wiki do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h4>Wiki Form</h4></div>
+</div>
 
-  <%= f.label :body %>
-  <%= f.text_area :body, rows: 8 %>
+<%= form_for @wiki do |f| %>
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: "Enter title" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %>
+    <%= f.text_area :body, rows: 8, class: "form-control", placeholder: "Enter body" %>
+  </div>
 
   <% if current_user.premium? || current_user.admin? %>
-    <%= f.label :private, class: 'checkbox' do %>
+    <div><%= f.label :private, class: 'checkbox' 'form-group' do %>
       <%= f.check_box :private %> Private Wiki
-    <% end %> 
+      <% end %>
+    </div>
   <% end %>
-  <%= f.submit "Submit" %>
+  <br>
+  <p><%= f.submit "Submit", class: "btn btn-default btn-success" %></p>
 <% end %>

@@ -1,9 +1,12 @@
-<h1><%= @wiki.title %></h1>
-
-<p><%= markdown(@wiki.body) %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading"><h2>Title: <%= @wiki.title %></h2></div>
+  <div class="panel-body">
+    <h3>Body: </h3><%= markdown(@wiki.body) %>
+  </div>
+</div>
 <% unless current_user.nil? %>
   <% if policy(@wiki).edit? %>
     <%= link_to "Edit", edit_wiki_path(@wiki), class: 'btn btn-success' %>
-    <%= link_to "Delete Wiki", wiki_path(@wiki), class: 'btn btn-danger', method: :delete %>
+    <%= link_to "Delete", wiki_path(@wiki), class: 'btn btn-danger', method: :delete %>
   <% end %>
 <% end %>
