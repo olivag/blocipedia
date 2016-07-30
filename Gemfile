@@ -15,6 +15,7 @@ gem 'turbolinks'
 gem 'pry'
 gem 'redcarpet'
 gem 'quiet_assets'
+gem 'faker'
 
 group :production do
   gem 'pg'
@@ -32,6 +33,5 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails', '~> 3.0'
   gem 'shoulda'
-  gem 'faker'
   gem 'factory_girl_rails', '~> 4.0'
 end
