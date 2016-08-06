@@ -12,6 +12,7 @@
 <% end %>
 
 <h3>Current Collaborators </h3>
+<% unless @user.nil? %>
 <div>
   <ul>
     <% @wiki.collaborators.each do |collaborator| %> 
@@ -20,3 +21,4 @@
     <% end %>
   </ul>
 </div>
+<% end %>
