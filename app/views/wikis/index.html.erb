@@ -1,3 +1,10 @@
+<div class="flickr_pagination">
+  <div class="page_info">
+    <%= page_entries_info @wikis %>
+  </div>
+  <br>
+    <%= will_paginate @wikis, :container => false %>
+</div>
 <div class="panel panel-primary">
   <div class="panel-heading"><h4>Wikis</h4></div>
   

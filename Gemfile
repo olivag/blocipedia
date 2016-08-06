@@ -16,6 +16,7 @@ gem 'pry'
 gem 'redcarpet'
 gem 'quiet_assets'
 gem 'faker'
+gem 'will_paginate', '~> 3.1.0'
 
 group :production do
   gem 'pg'

@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class WikisController < ApplicationController
   #skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :authenticate_user!, except: [:index, :show]
@@ -7,7 +8,7 @@ class WikisController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def index
-    @wikis = policy_scope(Wiki)
+    @wikis = policy_scope(Wiki).paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
