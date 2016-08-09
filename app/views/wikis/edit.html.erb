@@ -12,13 +12,12 @@
 <% end %>
 
 <h3>Current Collaborators </h3>
-<% unless @user.nil? %>
 <div>
   <ul>
     <% @wiki.collaborators.each do |collaborator| %> 
-    <li><%= collaborator.user.email %></li>
-    <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
+      <li><%= collaborator.user.email %></li>
+      <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
     <% end %>
   </ul>
 </div>
-<% end %>
+
