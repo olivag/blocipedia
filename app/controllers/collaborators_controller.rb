@@ -12,21 +12,12 @@ class CollaboratorsController < ApplicationController
         user_id: id
       )
     end
-
-    # @collaborator = Collaborator.new(collab_params)
-    # @collaborator.save
-
-    # redirect_to @collaborator.wiki
     redirect_to :back
   end
 
   def destroy
     @collaborator = Collaborator.find(params[:id])
     @collaborator.delete
-    redirect_to @collaborator.wiki
+    redirect_to :back
   end
-
-  # def collab_params
-  #   params.require(:collaborator).permit(:wiki_id, :user_id)
-  # end
 end

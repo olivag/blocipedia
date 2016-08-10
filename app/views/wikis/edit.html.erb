@@ -1,23 +1,32 @@
 <%= render partial: 'form', locals: { wiki: @wiki } %>
 
 <br>
-<h3>Add Collaborators</h3>
 
 
-<%= form_for  @new_collaborator do |f| %>
-  <!-- needs user_id and wiki_id -->
-  <%= f.hidden_field :wiki_id, value: params[:id] %>
-  <%= f.collection_check_boxes :user_id, @users, :id, :email %>
-  <%= f.submit %>
-<% end %>
 
-<h3>Current Collaborators </h3>
-<div>
-  <ul>
-    <% @wiki.collaborators.each do |collaborator| %> 
-      <li><%= collaborator.user.email %></li>
-      <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
+<div class="row">
+  <div class="col-md-6">
+    <h3>Add Collaborators</h3>
+    <%= form_for  @new_collaborator do |f| %>
+      <!-- needs user_id and wiki_id -->
+      <%= f.hidden_field :wiki_id, value: params[:id] %>
+      <%= f.collection_check_boxes :user_id, @users, :id, :email %>
+      <%= f.submit %>
     <% end %>
-  </ul>
+  </div>
+  <div class="col-md-6">
+    <h3>Current Collaborators </h3>
+    <div>
+      <ul>
+        <% @wiki.collaborators.each do |collaborator| %> 
+          <li><%= collaborator.user.email %></li>
+          <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
+
+
+
 
