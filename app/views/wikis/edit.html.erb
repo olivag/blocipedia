@@ -2,31 +2,36 @@
 
 <br>
 
-
-
 <div class="row">
   <div class="col-md-6">
-    <h3>Add Collaborators</h3>
-    <%= form_for  @new_collaborator do |f| %>
-      <!-- needs user_id and wiki_id -->
-      <%= f.hidden_field :wiki_id, value: params[:id] %>
-      <%= f.collection_check_boxes :user_id, @users, :id, :email %>
-      <%= f.submit %>
-    <% end %>
-  </div>
-  <div class="col-md-6">
-    <h3>Current Collaborators </h3>
-    <div>
-      <ul>
-        <% @wiki.collaborators.each do |collaborator| %> 
-          <li><%= collaborator.user.email %></li>
-          <%= link_to "Delete", collaborator_path(collaborator), method: :delete %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="text-center">Add Collaborators</h3></div>
+      <div class="panel-body">
+        <%= form_for  @new_collaborator do |f| %>
+          <%= f.hidden_field :wiki_id, value: params[:id] %>
+          <div class="form-group">
+            <%= f.collection_check_boxes :user_id, @users, :id, :email do |b| %>
+              <%= b.label { b.check_box + " #{b.text}" } %>
+              <br>
+            <% end %>
+          </div>
+            <%= f.submit :class => "btn btn-sm btn-success pull-right" %>
         <% end %>
-      </ul>
+      </div>
     </div>
   </div>
+  <div class="col-md-6"> 
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 class="text-center">Current Collaborators</h3></div>
+      <div class="panel-body">
+        <ul>
+          <% @wiki.collaborators.each do |collaborator| %> 
+            <li><%= collaborator.user.email %>
+            <%= link_to " Remove", collaborator_path(collaborator), class: "glyphicon glyphicon-trash pull-right", method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  <div>
 </div>
-
-
-
-

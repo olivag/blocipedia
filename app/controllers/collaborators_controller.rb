@@ -3,7 +3,6 @@ class CollaboratorsController < ApplicationController
 
     new_user_ids = params[:collaborator][:user_id]
 
-
     new_user_ids.each do |id|
       break if id.blank?
 
